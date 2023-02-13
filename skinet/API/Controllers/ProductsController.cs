@@ -1,6 +1,7 @@
 using Core.Entities;
 using Core.Interfaces;
 using Infrastructure.Data;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -28,6 +29,18 @@ namespace API.Controllers
         {
 
             return await _productRepository.GetProductByIdAsync(id);
+        }
+
+        [HttpGet("brands")]
+        public async Task<ActionResult<List<ProductBrand>>> GetBrands()
+        {
+            return Ok(await _productRepository.GetProductBrandsAsync());
+        }
+
+        [HttpGet("types")]
+        public async Task<ActionResult<List<ProductType>>> GetTypes()
+        {
+            return Ok(await _productRepository.GetProductTypesAsync());
         }
     }
 }
