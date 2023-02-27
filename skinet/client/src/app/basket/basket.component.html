@@ -46,6 +46,7 @@
                     <i
                       class="fa fa-minus-circle text-warning me-2"
                       style="cursor: pointer; font-size: 2em"
+                      (click)="removeItem(item.id, 1)"
                     ></i>
                     <strong style="font-size: 1.5em">{{
                       item.quantity
@@ -53,6 +54,7 @@
                     <i
                       class="fa fa-plus-circle text-warning ms-2"
                       style="cursor: pointer; font-size: 2em"
+                      (click)="incrementQuantity(item)"
                     ></i>
                   </div>
                 </td>
@@ -64,6 +66,7 @@
                     ><i
                       class="fa fa-trash"
                       style="font-size: 2em; cursor: pointer"
+                      (click)="removeItem(item.id, item.quantity)"
                     ></i
                   ></a>
                 </td>
