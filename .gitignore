@@ -478,3 +478,6 @@ $RECYCLE.BIN/
 skinet/API/skinet.db
 skinet/API/skinet.db-shm
 skinet/API/skinet.db-wal
+skinet/API/identity.db
+skinet/API/identity.db-shm
+skinet/API/identity.db-wal
