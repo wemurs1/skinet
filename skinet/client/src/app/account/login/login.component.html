@@ -7,12 +7,27 @@
       <div class="form-floating mb-3">
         <input
           type="email"
+          [class.is-invalid]="
+            loginForm.get('email')?.touched && loginForm.get('email')?.invalid
+          "
           class="form-control"
           id="floatingInput"
           placeholder="Email"
           formControlName="email"
         />
         <label for="floatingInput">Email address</label>
+        <div
+          *ngIf="loginForm.get('email')?.errors?.['required']"
+          class="invalid-feedback"
+        >
+          Please choose an email
+        </div>
+        <div
+          *ngIf="loginForm.get('email')?.errors?.['email']"
+          class="invalid-feedback"
+        >
+          Invalid email address
+        </div>
       </div>
       <div class="form-floating">
         <input
@@ -30,5 +45,12 @@
         </button>
       </div>
     </form>
+  </div>
+  <div class="col-4 ms-5">
+    <p>Form Status: {{ loginForm.status }}</p>
+    <p>Email Status: {{ loginForm.get("email")?.status }}</p>
+    <p>Email Touched: {{ loginForm.get("email")?.touched }}</p>
+    <p>Email Dirty: {{ loginForm.get("email")?.dirty }}</p>
+    <pre>{{ loginForm.value | json }}</pre>
   </div>
 </div>
