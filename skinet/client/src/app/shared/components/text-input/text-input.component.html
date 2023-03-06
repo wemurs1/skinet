@@ -15,4 +15,7 @@
   <div *ngIf="control.errors?.['email']" class="invalid-feedback">
     Invalid email address
   </div>
+  <div *ngIf="control.errors?.['pattern']" class="invalid-feedback">
+    Password not complex enough
+  </div>
 </div>
