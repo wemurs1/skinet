@@ -9,6 +9,8 @@ import { AccountService } from '../account.service';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
+  errors: string[] | null = null;
+
   constructor(
     private formBuilder: FormBuilder,
     private accountService: AccountService,
@@ -28,8 +30,9 @@ export class RegisterComponent {
   });
 
   onSubmit() {
-    this.accountService
-      .register(this.registerForm.value)
-      .subscribe({ next: () => this.router.navigateByUrl('/shop') });
+    this.accountService.register(this.registerForm.value).subscribe({
+      next: () => this.router.navigateByUrl('/shop'),
+      error: (error) => (this.errors = error.errors),
+    });
   }
 }
