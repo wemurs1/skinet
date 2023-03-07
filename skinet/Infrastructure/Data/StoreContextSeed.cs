@@ -1,6 +1,7 @@
 using System.ComponentModel;
 using System.Text.Json;
 using Core.Entities;
+using Core.Entities.OrderAggregate;
 
 namespace Infrastructure.Data
 {
@@ -29,6 +30,14 @@ namespace Infrastructure.Data
                 var productsData = await File.ReadAllTextAsync(baseDirectory + "products.json");
                 var products = JsonSerializer.Deserialize<List<Product>>(productsData) ?? new List<Product>();
                 context.AddRange(products);
+            }
+
+            if (!context.DeliveryMethods!.Any())
+            {
+                var deliveryData = await File.ReadAllTextAsync(baseDirectory + "delivery.json");
+                var deliveryMethods = JsonSerializer.Deserialize<List<DeliveryMethod>>(deliveryData)
+                    ?? new List<DeliveryMethod>();
+                context.AddRange(deliveryMethods);
             }
 
             if (context.ChangeTracker.HasChanges())
