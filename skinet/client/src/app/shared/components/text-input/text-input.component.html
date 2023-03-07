@@ -8,6 +8,10 @@
       control.touched ? (control.invalid ? 'is-invalid' : 'is-valid') : null
     "
   />
+  <div
+    *ngIf="control.status === 'PENDING'"
+    class="fa fa-spinner fa-spin loader"
+  ></div>
   <label for="floatingInput">{{ label }}</label>
   <div *ngIf="control.errors?.['required']" class="invalid-feedback">
     Please choose your {{ label }}
@@ -17,5 +21,8 @@
   </div>
   <div *ngIf="control.errors?.['pattern']" class="invalid-feedback">
     Password not complex enough
+  </div>
+  <div *ngIf="control.errors?.['emailExists']" class="invalid-feedback">
+    Eamil address is taken
   </div>
 </div>
