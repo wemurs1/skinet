@@ -6,7 +6,7 @@ services:
       - 6379:6379
     command: ["redis-server", "--appendonly", "yes"]
     volumes:
-      - redis-data:/data
+      - redis-data1:/data
 
   redis-commander:
     image: rediscommander/redis-commander:latest
@@ -27,8 +27,8 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - postgres-data:/data
+      - postgres-data1:/data
 
 volumes:
-  redis-data:
-  postgres-data:
+  redis-data1:
+  postgres-data1:
