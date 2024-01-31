@@ -26,7 +26,7 @@
     <a class="p-2" routerLink="/test-error" routerLinkActive="active">Errors</a>
   </nav>
   <div class="d-flex align-items-center">
-    <a routerLink="/basket" href="" class="position-relative">
+    <a routerLink="/basket" class="position-relative">
       <i class="fa fa-shopping-cart fa-2x me-5 text-dark"></i>
       <div
         *ngIf="basketService.basketSource$ | async as basket"
@@ -35,7 +35,11 @@
         {{ getCount(basket.items) }}
       </div>
     </a>
-    <a href="" class="btn btn-outline-secondary me-2">Login</a>
-    <a href="" class="btn btn-outline-secondary me-3">Sign up</a>
+    <a routerLink="/account/login" class="btn btn-outline-secondary me-2"
+      >Login</a
+    >
+    <a routerLink="/account/register" class="btn btn-outline-secondary me-3"
+      >Sign up</a
+    >
   </div>
 </header>
