@@ -19,5 +19,7 @@ public class MappingProfiles : Profile
         CreateMap<BasketItemDto, BasketItem>();
 
         CreateMap<CustomerBasketDto, CustomerBasket>();
+
+        CreateMap<AddressDto, Core.Entities.OrderAggregate.Address>();
     }
 }
