@@ -481,3 +481,4 @@ API/identity.db-wal
 API/skinet.db-shm
 API/skinet.db-wal
 API/skinet.db
+API/appsettings.json
