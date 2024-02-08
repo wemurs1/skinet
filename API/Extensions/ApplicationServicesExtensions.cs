@@ -22,6 +22,7 @@ public static class ApplicationServicesExtensions
             var options = ConfigurationOptions.Parse(config.GetConnectionString("Redis")!);
             return ConnectionMultiplexer.Connect(options);
         });
+        services.AddSingleton<IResponseCacheService, ResponseCacheService>();
 
         services.AddScoped<IBasketRepository, BasketRepository>();
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
